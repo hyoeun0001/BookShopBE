@@ -21,8 +21,7 @@ const getAllBooks = (req, res) => {
     }
 
     sql += ` LIMIT ? OFFSET ?`
-    values.push(limit)
-    values.push(offset)
+    values.push(limit,offset)
     conn.query(sql, values,
         (err, results) => {
             if (err) {
