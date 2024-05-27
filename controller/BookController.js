@@ -8,7 +8,7 @@ const getAllBooks = (req, res) => {
     limit = parseInt(limit)
     let offset = limit * (current_page-1)
     
-    let sql = `SELECT * FROM books`;
+    let sql = `SELECT *,(SELECT count(*) FROM likes WHERE liked_book_id=books.id) AS likes  FROM books`;
     let values = [];
     if (category_id && new_books) {
         values = [category_id];
@@ -39,12 +39,17 @@ const getAllBooks = (req, res) => {
 
 const getBookDetail = (req, res) => {
     let {book_id} = req.params;
+    let {user_id} = req.body;
 
-    let sql = `SELECT * FROM books LEFT
-    JOIN category ON books.category_id = category.category_id
+    let sql = `SELECT *,
+        (SELECT count(*) FROM likes WHERE liked_book_id=books.id) AS likes,
+        (SELECT EXISTS (SELECT * FROM likes WHERE user_id = ? AND liked_book_id=?)) AS liked 
+    FROM books 
+    LEFT JOIN category
+    ON books.category_id = category.category_id
     WHERE books.id = ?`;
-
-    conn.query(sql,book_id,
+    let values = [user_id, book_id,book_id];
+    conn.query(sql,values,
         (err, results) => {
             if (err) {
                 console.log(err);

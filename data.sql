@@ -58,6 +58,12 @@ INSERT INTO likes (user_id, liked_book_id) VALUES (2, 5);
 // 좋아요 삭제
 DELETE FROM likes WHERE user_id = 1 AND liked_book_id = 3;
 
+
+//도서 좋아요 수
+SELECT *
+	,(SELECT count(*) FROM likes WHERE liked_book_id=books.id) AS likes 
+	FROM BookShop.books;
+
 // 장바구니 담기
 INSERT INTO cartItems (book_id, quantity, user_id) VALUES (1, 1, 1);
 
