@@ -3,9 +3,10 @@ const mariadb = require('mysql2');
 const connection = mariadb.createConnection({
   host: 'localhost',
   user: 'root',
-  password : 'root',
+  password: 'root',
   database: 'BookShop',
-  dateStrings : true
-});
+  dateStrings: true
+})
+
 
 module.exports = connection;

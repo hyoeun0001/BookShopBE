@@ -1,22 +1,17 @@
 const express = require('express');
 const router = express.Router();
-// const { body, param, validationResult } = require('express-validator');
-// const jwt = require('jsonwebtoken');
-// const dotenv = require('dotenv');
-// dotenv.config();
+const {
+    orderItems,
+    getOrders,
+    getOrderDetail
+} = require('../controller/OrderController');
 
 router.use(express.json());
 
-router.post("/", [], (req, res, next) => {
-    res.json('주문하기')
-});
+router.post("/", orderItems);
 
-router.get("/", [], (req, res, next) => {
-    res.json('주문 목록 조회')
-});
+router.get("/", getOrders);
 
-router.get("/:bookId", [], (req, res, next) => {
-    res.json('주문 상세')
-});
+router.get("/:order_id", getOrderDetail);
 
 module.exports = router;
