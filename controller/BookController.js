@@ -32,6 +32,12 @@ const getAllBooks = (req, res) => {
             }
             console.log(results);
             if (results.length) {
+                results.map(function(result){
+                    result.pubDate = result.pub_date;
+                    result.categoryId = result.category_id;
+                    delete result.pub_date;
+                    delete result.category_id;
+                })
                 allBooksRes.books = results;
             } else {
                 res.status(StatusCodes.NOT_FOUND).end()
@@ -94,6 +100,13 @@ const getBookDetail = (req, res) => {
                     return res.status(StatusCodes.BAD_REQUEST).end();
                 }
                 if (results[0]) {
+                    results.map(function(result){
+                        result.categoryName = result.category_name;
+                        result.pubDate = result.pub_date;
+                        delete result.pub_date;
+                        delete result.category_name;
+                        delete result.category_id;
+                    })
                     res.status(StatusCodes.OK).json(results[0]);
                 } else {
                     res.status(StatusCodes.NOT_FOUND).end()

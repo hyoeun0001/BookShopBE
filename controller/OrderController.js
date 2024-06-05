@@ -95,6 +95,19 @@ const getOrders = (req, res) => {
                 }
 
                 if (results) {
+                    results.map(function(result){
+                        result.orderId = result.order_id;
+                        result.createdAt = result.created_at;
+                        result.bookTitle = result.book_title;
+                        result.totalPrice = result.total_price;
+                        result.totalCount = result.total_count;
+
+                        delete result.order_id;
+                        delete result.created_at;
+                        delete result.book_title;
+                        delete result.total_price;
+                        delete result.total_count;
+                    })
                     res.status(StatusCodes.OK).json(results)
                 }
             }
@@ -117,6 +130,10 @@ const getOrderDetail = (req, res) => {
                 console.log(err);
                 return res.status(StatusCodes.BAD_REQUEST).end();
             }
+            results.map(function(result){
+                result.bookId = result.book_id;
+                delete result.book_id;
+            })
             res.status(StatusCodes.OK).json(results)
         }
     )

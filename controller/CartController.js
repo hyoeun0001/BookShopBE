@@ -66,6 +66,10 @@ const getCartItems = (req, res) => {
                 }
 
                 if (results) {
+                    results.map(function(result){
+                        result.bookId = result.book_id;
+                        delete result.book_id;
+                    })
                     res.status(StatusCodes.OK).json(results)
                 }
             }
