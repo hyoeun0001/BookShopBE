@@ -5,7 +5,7 @@ const crypto = require('crypto');
 const dotenv = require('dotenv');//dotenv 모듈
 dotenv.config();
 
-const join = (req, res) => {
+const join = (req, res, next) => {
     const {email, password} = req.body;
 
     let sql = `INSERT INTO users (email, password, salt) VALUES(?, ?, ?)`;
@@ -29,7 +29,7 @@ const join = (req, res) => {
     )
 };
 
-const login = (req, res) => {
+const login = (req, res, next) => {
     const {email, password} = req.body;
 
     let sql = `SELECT * FROM users WHERE email = ?`;
