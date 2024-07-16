@@ -1,6 +1,6 @@
 const ensureAuthorization = require('../auth');
 const conn = require('../mariadb');
-const {StatusCodes} = require('http-status-codes');
+const { StatusCodes } = require('http-status-codes');
 const jwt = require('jsonwebtoken');
 
 const orderItems = async (req, res) => {
@@ -69,7 +69,7 @@ const deleteCartItems = async (conn, items) => {
 }
 
 const getOrders = (req, res) => {
-    
+
     let authorization = ensureAuthorization(req);
 
     if (authorization instanceof jwt.TokenExpiredError) {
@@ -95,18 +95,20 @@ const getOrders = (req, res) => {
                 }
 
                 if (results) {
-                    results.map(function(result){
+                    results.map(function (result) {
                         result.orderId = result.order_id;
                         result.createdAt = result.created_at;
                         result.bookTitle = result.book_title;
                         result.totalPrice = result.total_price;
                         result.totalCount = result.total_count;
+                        result.totalQuantity = result.total_quantity;
 
                         delete result.order_id;
                         delete result.created_at;
                         delete result.book_title;
                         delete result.total_price;
                         delete result.total_count;
+                        delete result.total_quantity;
                     })
                     res.status(StatusCodes.OK).json(results)
                 }
@@ -116,7 +118,7 @@ const getOrders = (req, res) => {
 };
 
 const getOrderDetail = (req, res) => {
-    let {order_id} = req.params;
+    let { order_id } = req.params;
 
     let sql = `SELECT orderedBook.book_id, books.title, 
                 books.author, books.price, orderedBook.quantity
@@ -130,7 +132,7 @@ const getOrderDetail = (req, res) => {
                 console.log(err);
                 return res.status(StatusCodes.BAD_REQUEST).end();
             }
-            results.map(function(result){
+            results.map(function (result) {
                 result.bookId = result.book_id;
                 delete result.book_id;
             })
