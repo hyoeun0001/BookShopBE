@@ -85,9 +85,10 @@ const getOrders = (req, res) => {
 	            delivery.address, delivery.receiver, delivery.contact,
                 orders.book_title, orders.total_price,orders.total_quantity
                 FROM orders LEFT JOIN delivery
-                ON orders.delivery_id = delivery.delivery_id;`
+                ON orders.delivery_id = delivery.delivery_id
+                WHERE orders.user_id = ?;`
 
-        conn.query(sql,
+        conn.query(sql,authorization.id,
             (err, results) => {
                 if (err) {
                     console.log(err);
