@@ -1,20 +1,20 @@
-INSERT INTO books (title, form, isbn, summary, detail, author, pages, contents, price, pub_date)
-VALUES ("책 제목1", "종이책", 0, "내용요약1..", "책 설명1..", "최땡땡", 100, "목차", 20000, "2019-01-01");
+INSERT INTO books (title, img, category_id, form, isbn, summary, detail, author, pages, contents, price, pub_date)
+VALUES ("책 제목1", 1, 1, "종이책", 0, "내용요약1..", "책 설명1..", "최땡땡", 100, "목차", 20000, "2019-01-01");
 
-INSERT INTO books (title, form, isbn, summary, detail, author, pages, contents, price, pub_date)
-VALUES ("책 제목2", "종이책", 1, "내용요약2..", "책 설명2..", "정땡땡", 200, "목차", 20000, "2023-12-01");
+INSERT INTO books (title, img, category_id, form, isbn, summary, detail, author, pages, contents, price, pub_date)
+VALUES ("책 제목2", 2, 0, "종이책", 1, "내용요약2..", "책 설명2..", "정땡땡", 200, "목차", 20000, "2023-12-01");
 
-INSERT INTO books (title, form, isbn, summary, detail, author, pages, contents, price, pub_date)
-VALUES ("어린왕자들", "종이책", 2, "어리다..", "많이 어리다..", "김어림", 100, "목차입니다.", 20000, "2019-01-01");
+INSERT INTO books (title, img, category_id, form, isbn, summary, detail, author, pages, contents, price, pub_date)
+VALUES ("어린왕자들", 3, 2, "종이책", 2, "어리다..", "많이 어리다..", "김어림", 100, "목차입니다.", 20000, "2019-01-01");
 
-INSERT INTO books (title, form, isbn, summary, detail, author, pages, contents, price, pub_date)
-VALUES ("신데렐라들", "종이책", 3, "유리구두..", "투명한 유리구두..", "김구두", 100, "목차입니다.", 20000, "2024-05-16");
+INSERT INTO books (title, 4, 0, img, category_id, form, isbn, summary, detail, author, pages, contents, price, pub_date)
+VALUES ("신데렐라들", 99, 0, "종이책", 3, "유리구두..", "투명한 유리구두..", "김구두", 100, "목차입니다.", 20000, "2024-05-16");
 
-INSERT INTO books (title, form, isbn, summary, detail, author, pages, contents, price, pub_date)
-VALUES ("백설공주들", "종이책", 4, "사과..", "빨간 사과..", "김사과", 100, "목차입니다.", 20000, "2024-05-23");
+INSERT INTO books (title, img, category_id, form, isbn, summary, detail, author, pages, contents, price, pub_date)
+VALUES ("백설공주들", 98, 0, "종이책", 4, "사과..", "빨간 사과..", "김사과", 100, "목차입니다.", 20000, "2024-05-23");
 
-INSERT INTO books (title, form, isbn, summary, detail, author, pages, contents, price, pub_date)
-VALUES ("흥부와 놀부들", "종이책", 5, "제비..", "까만 제비..", "김제비", 100, "목차입니다.", 20000, "2024-05-22");
+INSERT INTO books (title, img, category_id, form, isbn, summary, detail, author, pages, contents, price, pub_date)
+VALUES ("흥부와 놀부들", 97, 0, "종이책", 5, "제비..", "까만 제비..", "김제비", 100, "목차입니다.", 20000, "2024-05-22");
 
 INSERT INTO books (title, img, category_id, form, isbn, summary, detail, author, pages, contents, price, pub_date)
 VALUES ("콩쥐 팥쥐", 4, 0, "ebook", 6, "콩팥..", "콩심은데 콩나고..", "김콩팥", 100, "목차입니다.", 20000, "2024-05-07");

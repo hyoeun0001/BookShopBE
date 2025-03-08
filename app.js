@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
+
+app.use(cookieParser());
 
 app.use(cors({
     origin: 'http://localhost:3000', // 프론트엔드가 실행되는 주소
