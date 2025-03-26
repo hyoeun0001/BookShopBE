@@ -19,7 +19,7 @@ BookShop은 온라인 도서 판매 웹사이트입니다.
 
 ### Backend
 - Language & Framework : Node.js, Express
-- Database : MySQL
+- Database : MariaDB
 - Auth : JWT
 
 ## 📌 시스템 아키텍처
