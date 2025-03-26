@@ -18,7 +18,7 @@ BookShop은 온라인 도서 판매 웹사이트입니다.
 - API 통신 : Axios
 
 ### Backend
-- Language & Framework : Java, Spring Boot
+- Language & Framework : Node.js, Express, MariaDB, JWT
 - Database : MySQL
 - Auth : JWT
 
